@@ -1,8 +1,19 @@
 # Setup
-Replace the following placeholders with correct values :
-- `API_KEY_TO_REPLACE` : your api key generated here : https://developers.giphy.com/dashboard/
-- `USERNAME_TO_REPLACE` : the username of the account of the api key
+Install youtube-dl `sudo apt install youtube-dl`
 
-# Example
+# Launch
+Replace the variable values and execute this code :
 
-`./youtube-to-gif.sh https://www.youtube.com/watch?v=gn--7WFOlx8 00:00:30 00:00:35`
+```
+VIDEO_FULL_URL="https://www.youtube.com/watch?v=vm3X1jx9q44"
+NAME="vm3X1jx9q44"
+START_TIME=00:00:22
+END_TIME=00:00:25
+
+export API_KEY="REPLACE_ME"
+export API_USERNAME="REPLACE_ME"
+./youtube-to-gif.sh $VIDEO_FULL_URL $NAME $START_TIME $END_TIME
+
+```
+
+You can see all the video providers allowed by running `youtube-dl --list-extractors`
