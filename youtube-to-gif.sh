@@ -9,7 +9,7 @@ VIDEO_FULL_URL="$1"
 START_TIME=${2:-00:00:00}
 END_TIME=${3:-00:00:10}
 if [ -z "$4" ]; then
-    NAME=`/bin/echo $VIDEO_FULL_URL | /usr/bin/md5sum | /bin/cut -f1 -d" "`
+    NAME=`/bin/echo $VIDEO_FULL_URL | /usr/bin/md5sum | /usr/bin/cut -f1 -d" "`
 else
     NAME=$4
 fi
@@ -20,7 +20,7 @@ YT_DL_FORMAT=${5:-bestvideo}
 
 SRC_FILE=".yt_videos/${YT_DL_FORMAT}_${NAME}"
 if [ ! -f "$SRC_FILE" ]; then
-    youtube-dl $VIDEO_FULL_URL -o $SRC_FILE -f $YT_DL_FORMAT
+    youtube-dl $VIDEO_FULL_URL -o $SRC_FILE #-f $YT_DL_FORMAT
     if [ $? -eq 0 ]; then
         SRC_FILE=`ls $SRC_FILE*`
     else
